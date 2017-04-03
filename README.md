@@ -1,2 +1,2 @@
 # Social-Network
-A simple social network implemented in Java.
+A social network implemented in Java.
