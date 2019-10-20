@@ -52,6 +52,7 @@ public test()
 			s= "\r\n";
 			myb = s.getBytes();
 			foo.write(myb);
+			System.out.priuntln("s");
 		}
 	}
 		

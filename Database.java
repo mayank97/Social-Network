@@ -20,15 +20,14 @@ public class Database implements DatabaseDisgn
 	
 	public Database()
 	{
-
+		int countError = 0;
 		try
 		{
 			FileReader read_file = new FileReader("input.txt");
 			BufferedReader file = new BufferedReader(read_file);
 			String row = null;
-						int i=0;
+			int i=0;
 						
-	
 			while((row = file.readLine())!= null)
 			{
 				if((row.split(","))[0]!=null)
@@ -36,11 +35,6 @@ public class Database implements DatabaseDisgn
 					username_list[i][0] = (row.split(","))[0];
 				
 				}
-				
-				
-				
-				
-				
 				
 				if((row.split(","))[3] != null)
 				{
@@ -62,14 +56,13 @@ public class Database implements DatabaseDisgn
 				int z = number+4+1;
 				if((row.split(","))[z] != null)
 				{
-				for(int q=2;q<=1+top;q++)
-				{
+					for(int q=2;q<=1+top;q++)
+					{
 					
-					pendingrequest[i][q]= (row.split(","))[bottom+z];
+						pendingrequest[i][q]= (row.split(","))[bottom+z];
 					
-					
-					bottom++;
-				}
+						bottom++;
+					}
 				}
 				
 				
@@ -82,18 +75,17 @@ public class Database implements DatabaseDisgn
 						username_list[i][j] = (row.split(","))[4+k];
 						k++;
 					}
+				} else {
+					countError += 1;
 				}
 				
 				
 				password_list[i] = (row.split(","))[1];
 				displayname_list[i] = (row.split(","))[2];
 				
-				int x=0;
 				String[] val = row.split(",");
-				for(String point : val)
-				{
-					x++;
-				}
+				x = val.length;
+
 				if(val[x-1] != null)
 				{
 					Status[i] = val[x-1];
@@ -101,8 +93,10 @@ public class Database implements DatabaseDisgn
 				i++;
 			}
 		}
-		catch(IOException e)
-		{
+		catch(IOException e) {
+			e.printStackTrace();
+		} 
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
