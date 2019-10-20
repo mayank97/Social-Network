@@ -55,6 +55,8 @@ public class SignIn implements SignInDesign
 		catch(ArrayIndexOutOfBoundsException e)
 		{
 			e.printStackTrace();
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
